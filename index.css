@@ -1,0 +1,108 @@
+
+
+           
+          
+
+        
+   
+          .header{
+            font-size:60px;
+        text-align: center;
+        
+        margin-top: 200px;
+    
+        
+        
+    }
+    body {
+        
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  flex-direction: column;
+
+}
+       
+  
+    .search_container{
+        margin-top:100px;
+        width:600px;
+        position:relative;
+        justify-content: center;
+        align-items: center;
+        display:flex;
+       
+
+        
+       
+        
+    }
+    .search_box{
+        width:100%;
+        padding: 20px 20px;
+        border-radius: 50px;
+        font-size:16px;
+        margin:auto;
+       
+       
+
+    }
+     .pokemon-stt{
+            font-size: x-large;
+            font:bold;
+        }
+        .list-pokemon{
+            margin-top:60px;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:40px;
+        }
+        .pokemon-box{
+
+            width:200px;
+            border-radius: 20px;;
+            border:2px solid #ccc;
+            padding:20px;
+            background-color: white;
+            text-align:center;}
+            .pokemon-name{
+                font-size: 2rem;
+                
+                color:black;
+                margin-top:40px;
+                
+
+            }
+            .pokemon-type{
+                display:flex;
+                justify-content:center;
+                gap:10px;
+            }
+          
+           
+           
+            
+            .pokemon_type.grass { background-color: #81c784;color: white; border-radius:4px;
+            padding:5px;}
+        .pokemon_type.fire { background-color: #f44336; color: white; padding:5px;border-radius:4px; }
+        .pokemon_type.poison { background-color: #9c27b0; color: white;  padding:5px;border-radius:4px;}
+        .pokemon_type.flying { background-color: #03a9f4; color: white;  padding:5px;border-radius:4px;}
+
+
+            
+
+            
+
+
+
+
+        
+    
+
+  
+    
+        
+  

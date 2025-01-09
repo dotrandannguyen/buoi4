@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon</title>
+    <title>Pokemon API</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<link rel="stylesheet" href="index.css">
 <body>
 
     <h1 class="header">Pokemon API</h1>
@@ -14,75 +14,75 @@
         <input type="text" class="search_box" placeholder="Search some pokemon...">
     </div>
 
-    <div class="list-pokemon">
-        <div class="pokemon-box">
-            <div class="pokemon-stt">#1</div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur" width="200" />
-            <div class="pokemon-name"> Bulbsaur</div>
-            <div class="pokemon-type">
-                <span class="pokemon_type grass"> Grass</span>
-                <span class="pokemon_type poison">Poison</span>
-            </div>
-        </div>
-        
+    <button id="load-info">Load Info</button>
 
+    <div class="list-pokemon" id="pokemon-list"></div> <!-- Thêm id="pokemon-list" -->
 
-        <div class="pokemon-box">
-            <div class="pokemon-stt">#2</div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="Ivysaur" width="200" />
-            <div class="pokemon-name"> Ivisaur</div>
-            <div class="pokemon-type">
-                <span class="pokemon_type grass"> Grass</span>
-                <span class="pokemon_type poison">Poison</span>           
-            </div>
-        </div>
+    <script>
+        const pokemonArray = [
+            {
+                id: 1,
+                name: "Bulbasaur",
+                img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+                types: ["Grass", "Poison"]
+            },
+            {
+                id: 2,
+                name: "Ivysaur",
+                img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+                types: ["Grass", "Poison"]
+            },
+            {
+                id: 3,
+                name: "Venusaur",
+                img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+                types: ["Grass", "Poison"]
+            },
+            {
+                id: 4,
+                name: "Charmander",
+                img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+                types: ["Fire"]
+            },
+            {
+                id: 5,
+                name: "Charmeleon",
+                img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+                types: ["Fire"]
+            },
+            {
+                id: 6,
+                name: "Charizard",
+                img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+                types: ["Fire", "Flying"]
+            }
+        ];
 
+        // Function để render thông tin Pokémon từ mảng
+        function renderPokemon(pokemonArray) {
+            const pokemonList = document.getElementById('pokemon-list');
+            pokemonList.innerHTML = ''; // Xóa danh sách cũ trước khi render lại
 
+            pokemonArray.forEach(pokemon => {
+                const pokemonCard = document.createElement('div');
+                pokemonCard.classList.add('pokemon-box');
+                pokemonCard.innerHTML = `
+                    <div class="pokemon-stt">#${pokemon.id}</div>
+                    <img src="${pokemon.img}" alt="${pokemon.name}" width="200" />
+                    <div class="pokemon-name">${pokemon.name}</div>
+                    <div class="pokemon-type">
+                        ${pokemon.types.map(type => `<span class="pokemon_type ${type.toLowerCase()}">${type}</span>`).join('')}
+                    </div>
+                `;
+                pokemonList.appendChild(pokemonCard);
+            });
+        }
 
-
-        <div class="pokemon-box">
-            <div class="pokemon-stt">#3</div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" alt="Venusaur" width="200" />
-            <div class="pokemon-name"> Venusaur</div>
-            <div class="pokemon-type">
-                <span class="pokemon_type grass"> Grass</span>
-                <span class="pokemon_type poison">Poison</span>
-            </div>
-        </div>
-
-
-        <div class="pokemon-box">
-            <div class="pokemon-stt">#4</div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander" width="200" />
-            <div class="pokemon-name"> Charmandar</div>
-            <div class="pokemon-type">
-                <span class="pokemon_type fire"> Fire</span>
-                
-            </div>
-        </div>
-
-        <div class="pokemon-box">
-            <div class="pokemon-stt">#5</div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png" alt="Charmeleon" width="200" />
-            <div class="pokemon-name"> Charmeleon</div>
-            <div class="pokemon-type">
-                <span class="pokemon_type fire"> Fire</span>
-
-               
-            </div>
-        </div>
-        <div class="pokemon-box">
-            <div class="pokemon-stt">#6</div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="Charizard" width="200" />
-            <div class="pokemon-name">Charizard</div>
-            <div class="pokemon-types">
-                <span class="pokemon_type fire">Fire</span>
-                <span class="pokemon_type flying">Flying</span>
-            </div>
-        </div>
-
-
-    </div>
+        // Lắng nghe sự kiện click vào nút "Load Info"
+        document.getElementById('load-info').addEventListener('click', () => {
+            renderPokemon(pokemonArray);
+        });
+    </script>
 
 </body>
 </html>

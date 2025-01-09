@@ -92,7 +92,33 @@
         .pokemon_type.flying { background-color: #03a9f4; color: white;  padding:5px;border-radius:4px;}
 
 
-            
+        #load-info {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        #load-info:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        
+        #load-info:active {
+            background-color: #003f7f;
+            transform: scale(1);
+        }
+        
+        #load-info {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
 
             
 
